@@ -4,8 +4,9 @@ export class Holidays {
 
     private _year: number;
 
-    constructor(year: number) {
+    constructor(year?: number) {
 
+        // @ts-ignore
         this._year = year;
 
         if(isNaN(this._year)){
@@ -66,6 +67,8 @@ export class Holidays {
 
     /**
      * Pasen
+     *
+     * @thanks to Jon Stuebe
      */
     easter(): Date[] {
 
