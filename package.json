@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -34,7 +34,7 @@
     "trailingComma": "es5"
   },
   "name": "holidays-nl",
-  "author": "Martijn (Biggetje)",
+  "author": "Martijn Schimmel",
   "module": "dist/holidays-nl.esm.js",
   "size-limit": [
     {
