@@ -9,25 +9,32 @@ export class Holidays {
         // @ts-ignore
         this._year = year;
 
-        if(isNaN(this._year)){
+        if (isNaN(this._year)) {
             this._year = (new Date()).getFullYear();
         }
     }
 
-    common() : Date[] {
+    common(): Date[] {
 
-        const holidays = [this.newYearsDay(), this.kingsDay(), ... this.easter(), this.ascension(),
+        const holidays = [this.newYearsDay(), this.kingsDay(), ...this.easter(), this.ascension(),
             ...this.pentecost(), ...this.christmas()];
 
         const liberationDay = this.liberationDay();
 
-        if(liberationDay instanceof Date){
+        if (liberationDay instanceof Date) {
             holidays.push(liberationDay);
         }
 
-        return holidays.sort((a: Date,b: Date) => {
+        return holidays.sort((a: Date, b: Date) => {
             return Number(a) - Number(b);
         });
+    }
+
+    /**
+     * Alias
+     */
+    kerstmis(): Date[] {
+        return this.christmas();
     }
 
     /**
@@ -45,6 +52,13 @@ export class Holidays {
     }
 
     /**
+     * Alias
+     */
+    hemelvaart(): Date {
+        return this.ascension();
+    }
+
+    /**
      * Hemelvaart
      */
     ascension(): Date {
@@ -55,14 +69,28 @@ export class Holidays {
     }
 
     /**
+     * Alias
+     */
+    pinksteren(): Date[] {
+        return this.pentecost();
+    }
+
+    /**
      * Pinksteren
      */
     pentecost(): Date[] {
 
         const [first] = this.easter();
-        const entity = addDays(first, 50 -1);
+        const entity = addDays(first, 50 - 1);
 
         return [entity, addDays(entity, 1)];
+    }
+
+    /**
+     * Alias
+     */
+    pasen(): Date[] {
+        return this.easter();
     }
 
     /**
@@ -111,7 +139,7 @@ export class Holidays {
             n = div(t, 31) + 3,
             p = mod(t, 31);
 
-        const entity =  new Date(this._year, n - 1, p + 1);
+        const entity = new Date(this._year, n - 1, p + 1);
 
         return [entity, addDays(entity, 1)]
     }
@@ -127,6 +155,13 @@ export class Holidays {
     }
 
     /**
+     * Alias
+     */
+    bevrijdingsdag(): Date | null {
+        return this.liberationDay();
+    }
+
+    /**
      * Bevrijdingsdag
      */
     liberationDay(): Date | null {
@@ -136,6 +171,13 @@ export class Holidays {
         }
 
         return null;
+    }
+
+    /**
+     * Alias
+     */
+    koningsdag(): Date {
+        return this.kingsDay();
     }
 
     /**
