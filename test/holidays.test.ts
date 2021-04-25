@@ -22,13 +22,13 @@ describe('Holidays', () => {
     it('bevrijdingsdag', () => {
 
         const date = holidays.bevrijdingsdag();
-        expect(date).toBeInstanceOf(Date);
+        expect(date).toBeNull()
     });
 
     it('liberationDay', () => {
 
         const date = holidays.liberationDay();
-        expect(date).toBeInstanceOf(Date);
+        expect(date).toBeNull()
     });
 
     it('koningsdag', () => {
@@ -72,7 +72,7 @@ describe('Holidays', () => {
         const entity = new Holidays();
         entity.year = 2022;
 
-        expect(holidays.year).toBe(2022);
+        expect(entity.year).toEqual(2022);
     })
 
 });
