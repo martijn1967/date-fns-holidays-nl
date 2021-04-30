@@ -18,7 +18,8 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "np": "/usr/local/Cellar/node/16.0.0/bin/np"
+    "np": "/usr/local/Cellar/node/16.0.0/bin/np",
+    "documentation": "npx typedoc ./src/lib/holidays.ts"
   },
   "peerDependencies": {
     "date-fns": "2.x.x"
@@ -53,6 +54,7 @@
     "size-limit": "^4.10.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.2.0",
+    "typedoc": "^0.20.36",
     "typescript": "^4.2.4"
   },
   "dependencies": {

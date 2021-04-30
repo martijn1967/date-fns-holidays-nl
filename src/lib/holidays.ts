@@ -14,6 +14,9 @@ export class Holidays {
         }
     }
 
+    /**
+     * Common dutch holidays
+     */
     common(): Date[] {
 
         const holidays = [this.newYearsDay(), this.kingsDay(), ...this.easter(), this.ascension(),
@@ -31,7 +34,24 @@ export class Holidays {
     }
 
     /**
-     * Alias
+     * Check if the given date is a holiday. The input maybe a date a=or a string representing
+     * the date in the yyyy-mm-dd format
+     * @param entity
+     */
+    isHoliday(entity: string | Date): boolean{
+
+        if(entity instanceof Date){
+
+        } else if (typeof entity === 'string'){
+
+        }
+
+        return false;
+    }
+
+    /**
+     * Alias function for christmas
+     * @see christmas()
      */
     kerstmis(): Date[] {
         return this.christmas();
