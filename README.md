@@ -42,4 +42,4 @@ holidays.pinksteren(); // => Date[]
 
 ### Documentation
 
-See documentation [folder](https://github.com/sindresorhus/np).
+See documentation folder.
