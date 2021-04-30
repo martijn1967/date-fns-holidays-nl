@@ -21,7 +21,7 @@ const holidays = require('holidays-nl');
 ```
 or
 ```ts
-import holidays from 'holidays-nl';
+import {Holidays} from 'holidays-nl';
 ```
 
 ### Example

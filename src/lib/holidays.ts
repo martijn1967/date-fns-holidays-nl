@@ -1,4 +1,5 @@
 import {addDays} from 'date-fns';
+import {parseISO, formatISO} from 'date-fns';
 
 export class Holidays {
 
@@ -40,10 +41,27 @@ export class Holidays {
      */
     isHoliday(entity: string | Date): boolean{
 
+        let date: Date;
+
         if(entity instanceof Date){
+
+            date = entity;
+            this.year = date.getFullYear();
 
         } else if (typeof entity === 'string'){
 
+            date = parseISO(entity);
+            this.year = date.getFullYear();
+
+        }
+
+        const common = this.common().map((d: Date) => {
+            return formatISO(d, { representation: 'date' })
+        });
+
+        // @ts-ignore
+        if(date instanceof Date){
+           return common.indexOf(formatISO(date, { representation: 'date' })) !== -1;
         }
 
         return false;
